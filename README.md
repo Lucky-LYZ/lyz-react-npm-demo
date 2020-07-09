@@ -2,7 +2,7 @@
 
 发布 react 组件到 npm 文章的 demo
 
-Thanks for [crazylxr](https://github.com/crazylxr/react-demo/blob/master/README.md)
+Thanks for [crazylxr](https://github.com/crazylxr/react-demo/blob/master/README.md)。
 
 # 发布 react 组件到 npm
 
