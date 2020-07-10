@@ -6,15 +6,24 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+    mode: 'development',
     entry: path.join(__dirname, "./example/src/app.js"),
     output: {
         path: path.join(__dirname, "example/dist"),
         filename: "bundle.js"
     },
+    devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
             use: "babel-loader",
+            exclude: /node_modules/
+        }, {
+            test: /\.(css|less)$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ],
             exclude: /node_modules/
         }]
     },

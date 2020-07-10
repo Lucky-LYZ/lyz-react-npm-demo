@@ -1,5 +1,7 @@
-import React from 'react';
-const ReactDemo = () => (
-    <h1>这是我的第一个 react npm 组件.</h1>
-);
-export default ReactDemo;
+import ReactDemo from './components/First';
+import CodeEditor from './components/CodeEditor';
+
+export default {
+    ReactDemo,
+    CodeEditor
+};
