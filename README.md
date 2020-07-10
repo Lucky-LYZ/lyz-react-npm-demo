@@ -1,8 +1,8 @@
 # lyz-react-npm-demo
 
-发布 react 组件到 npm 文章的 demo
-
 Thanks for [crazylxr](https://github.com/crazylxr/react-demo/blob/master/README.md)。
+
+学习探索发布 react 组件到 npm 文章的 demo
 
 # 发布 react 组件到 npm
 
