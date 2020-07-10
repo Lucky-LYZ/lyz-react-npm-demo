@@ -307,9 +307,11 @@ npm run publish-demo
 npx babel src --out-dir lib
 ```
 
-执行完这个命令，就把生成一个 **lib** 文件夹，然后里面的 **index.js** 就是编译过后的文件，是可以直接发布到 **npm** 的文件。
-此处需要注意，因为项目根目录下没有 index.js，其实最终用户使用的组件来源于 lib/index.js。所以需要在 package.json 中指定 **main: ./lib/index.js**。
-当用户执行 **npm install lyz-react-npm-demo** 安装该组件后，通过 **import DemoComponents from 'lyz-react-npm-demo'** 时就会把 **node_modules\lyz-react-npm-demo\lib\index.js** 作为入口文件，获取 import 的组件数据。
+执行完这个命令，就会生成一个 **lib** 文件夹，然后里面的 **index.js** 就是编译过后的文件，是可以直接发布到 **npm** 的文件。
+
+此处需要注意，因为项目根目录下没有 index.js，其实最终用户使用的组件来源于 **lib/index.js**。所以需要在 **package.json** 中指定 **main: ./lib/index.js**。
+
+当用户执行 **npm install lyz-react-npm-demo** 安装该组件后，通过 **import DemoComponents from 'lyz-react-npm-demo'** 时就会把 **node_modules\lyz-react-npm-demo\lib\index.js** 作为入口文件，获取 import 的组件数据。否则会报错找不到需要 import 的数据！
 
 然后将这个编译命令写到 **script** 里，**package.json** 如下：
 
