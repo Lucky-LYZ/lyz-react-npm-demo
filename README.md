@@ -59,32 +59,32 @@ npm i html-webpack-plugin -D
 
 ```json
 {
-	"name": "react-demo",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "webpack-dev-server --open development",
-		"build": "webpack --mode production"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.2.2",
-		"@babel/preset-env": "^7.3.1",
-		"@babel/preset-react": "^7.0.0",
-		"babel-loader": "^8.0.5",
-		"html-webpack-plugin": "^3.2.0",
-		"react": "^16.7.0",
-		"react-dom": "^16.7.0",
-		"webpack": "^4.29.0",
-		"webpack-cli": "^3.2.1",
-		"webpack-dev-server": "^3.1.14"
-	},
-	"dependencies": {}
+  "name": "react-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {}
 }
 ```
 
@@ -122,17 +122,17 @@ export default ReactDemo;
 ```html
 <!-- examples/src/index.html -->
 <html>
-	<head>
-		<title>My First React Component</title>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
-	</head>
-	<body>
-		<div id="root"></div>
-	</body>
+  <head>
+    <title>My First React Component</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
 ```
 
@@ -154,41 +154,41 @@ render(<App />, document.getElementById("root"));
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-	template: path.join(__dirname, "./example/src/index.html"),
-	filename: "./index.html",
+  template: path.join(__dirname, "./example/src/index.html"),
+  filename: "./index.html",
 });
 
 module.exports = {
-	entry: path.join(__dirname, "./example/src/app.js"),
-	output: {
-		path: path.join(__dirname, "example/dist"),
-		filename: "bundle.js",
-	},
-	module: {
-		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				use: "babel-loader",
-				exclude: /node_modules/,
-			},
-		],
-	},
-	plugins: [htmlWebpackPlugin],
-	resolve: {
-		extensions: [".js", ".jsx"],
-	},
-	devServer: {
-		port: 3001,
-	},
+  entry: path.join(__dirname, "./example/src/app.js"),
+  output: {
+    path: path.join(__dirname, "example/dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [htmlWebpackPlugin],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  devServer: {
+    port: 3001,
+  },
 };
 ```
 
 Webpack 的配置文件主要做了如下事情：
 
--   使用 example/src/index.js 作为项目入口，处理资源文件的依赖关系
--   通过 babel-loader 来编译处理 js 和 jsx 文件
--   通过 html-webpack-plugin 自动注入编译打包好的脚本文件
--   为 demo 启动端口为 3001 的服务
+- 使用 example/src/index.js 作为项目入口，处理资源文件的依赖关系
+- 通过 babel-loader 来编译处理 js 和 jsx 文件
+- 通过 html-webpack-plugin 自动注入编译打包好的脚本文件
+- 为 demo 启动端口为 3001 的服务
 
 然后再配置一下 **babel**，咱们的 **babel** 主要做两件事，将 **jsx** 编译成 **es5**，然后再加一个通用的 **env**，所以 **.babelrc** 配置如下：
 
@@ -248,35 +248,35 @@ npm i gh-pages -D
 
 ```json
 {
-	"name": "@taoweng/react-demo",
-	"version": "1.0.0",
-	"description": "react demo",
-	"main": "lib/index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "webpack-dev-server --open development",
-		"build": "webpack --mode production",
-		"deploy": "gh-pages -d examples/dist",
-		"publish-demo": "npm run build && npm run deploy"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.2.2",
-		"@babel/preset-env": "^7.3.1",
-		"@babel/preset-react": "^7.0.0",
-		"babel-loader": "^8.0.5",
-		"gh-pages": "^2.0.1",
-		"html-webpack-plugin": "^3.2.0",
-		"react": "^16.7.0",
-		"react-dom": "^16.7.0",
-		"webpack": "^4.29.0",
-		"webpack-cli": "^3.2.1",
-		"webpack-dev-server": "^3.1.14"
-	},
-	"dependencies": {}
+  "name": "@taoweng/react-demo",
+  "version": "1.0.0",
+  "description": "react demo",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open development",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d examples/dist",
+    "publish-demo": "npm run build && npm run deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {}
 }
 ```
 
@@ -307,41 +307,41 @@ npm run publish-demo
 npx babel src --out-dir lib
 ```
 
-执行完这个命令，就把生成一个 **lib** 文件夹，然后里面的 **index.js** 就是编译过后的文件，是可以直接发布到 **npm** 的文件。
+执行完这个命令，就把生成一个 **lib** 文件夹，然后里面的 **index.js** 就是编译过后的文件，是可以直接发布到 **npm** 的文件(经测试，必须有一个 index.js 在根目录下，否则发布后 npm install \*\* 后无法使用！！)。
 
 然后将这个编译命令写到 **script** 里，**package.json** 如下：
 
 ```json
 {
-	"name": "@taoweng/react-demo",
-	"version": "1.0.0",
-	"description": "描述你这个组件是干啥的",
-	"repository": ":username/:repository",
-	"main": "lib/index.js",
-	"scripts": {
-		"start": "webpack-dev-server --open development",
-		"build": "webpack --mode production",
-		"compile": "npx babel src --out-dir lib"
-	},
-	"keywords": [],
-	"author": ":username",
-	"license": "MIT",
-	"devDependencies": {
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.2.2",
-		"@babel/preset-env": "^7.3.1",
-		"@babel/preset-react": "^7.0.0",
-		"babel-loader": "^8.0.5",
-		"html-webpack-plugin": "^3.2.0",
-		"webpack": "^4.29.0",
-		"webpack-cli": "^3.2.1",
-		"webpack-dev-server": "^3.1.14"
-	},
-	"dependencies": {
-		"@babel/polyfill": "^7.2.5",
-		"react": "^16.7.0",
-		"react-dom": "^16.7.0"
-	}
+  "name": "@taoweng/react-demo",
+  "version": "1.0.0",
+  "description": "描述你这个组件是干啥的",
+  "repository": ":username/:repository",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open development",
+    "build": "webpack --mode production",
+    "compile": "npx babel src --out-dir lib"
+  },
+  "keywords": [],
+  "author": ":username",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
 }
 ```
 
@@ -381,14 +381,14 @@ npm login
 
 package.json 里面的配置信息非常重要，我解释一下几个重要的配置。
 
--   [name](https://docs.npmjs.com/files/package.json#name): 包名，如果你学习的话建议加一个 scoped，就是我上面的 **@taoweng/react-demo** 而不是 **react-demo**，因为 npm 包特别的多，很容易重复。这样这个包就会是私有的，可以通过 `npm publish --access=public` 将这个包变为共有的包。
--   [version](https://docs.npmjs.com/files/package.json#version): 包的版本，每次发布包的版本不能和上次一样。详细规范可见[这里](https://semver.org/lang/zh-CN/)
--   [description](https://docs.npmjs.com/files/package.json#description)：包的简介。
--   [repository](https://docs.npmjs.com/files/package.json#repository)：适合写 Github 地址，建议写成：**:username/:repository**。
+- [name](https://docs.npmjs.com/files/package.json#name): 包名，如果你学习的话建议加一个 scoped，就是我上面的 **@taoweng/react-demo** 而不是 **react-demo**，因为 npm 包特别的多，很容易重复。这样这个包就会是私有的，可以通过 `npm publish --access=public` 将这个包变为共有的包。
+- [version](https://docs.npmjs.com/files/package.json#version): 包的版本，每次发布包的版本不能和上次一样。详细规范可见[这里](https://semver.org/lang/zh-CN/)
+- [description](https://docs.npmjs.com/files/package.json#description)：包的简介。
+- [repository](https://docs.npmjs.com/files/package.json#repository)：适合写 Github 地址，建议写成：**:username/:repository**。
 
--   [license](https://docs.npmjs.com/files/package.json#license)：认证。不知道该用什么的，就写 MIT 吧。
--   [main](https://docs.npmjs.com/files/package.json#main)：包的入口文件。就是引入这个包的时候去加载的入口文件。
--   [keywords](https://docs.npmjs.com/files/package.json#keywords)：添加一些关键词更容易使你的包被搜索到。
+- [license](https://docs.npmjs.com/files/package.json#license)：认证。不知道该用什么的，就写 MIT 吧。
+- [main](https://docs.npmjs.com/files/package.json#main)：包的入口文件。就是引入这个包的时候去加载的入口文件。
+- [keywords](https://docs.npmjs.com/files/package.json#keywords)：添加一些关键词更容易使你的包被搜索到。
 
 更详细的 **package.json** 配置可见[官网](https://docs.npmjs.com/files/package.json)。
 
@@ -396,7 +396,6 @@ package.json 里面的配置信息非常重要，我解释一下几个重要的�
 
 ```
 # .npmignore
-src
 examples
 .babelrc
 .gitignore
