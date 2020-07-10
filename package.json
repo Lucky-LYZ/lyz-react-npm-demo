@@ -1,6 +1,6 @@
 {
   "name": "lyz-react-npm-demo",
-  "version": "0.0.243",
+  "version": "0.0.249",
   "description": "学习探索发布 react 组件到 npm 文章的 demo",
   "repository": "https://github.com/Lucky-LYZ/lyz-react-npm-demo.git",
   "main-desc": "请注意，如果项目根目录下没有index.js文件的话，必须指定下述main详细指向的js文件，作为npm install该组件后import时的入口文件，否则import会找不到而报错！！",
@@ -13,7 +13,8 @@
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
     "compile": "npx babel src --out-dir lib",
-    "publish-demo": "npm run build && npm run deploy"
+    "publish-demo": "npm run build && npm run deploy",
+    "pre-publish": "npm run build && npm run compile"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -21,6 +22,8 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
     "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",

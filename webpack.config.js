@@ -1,9 +1,7 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "./example/src/index.html"),
-    filename: "./index.html"
-});
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -27,7 +25,18 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    plugins: [htmlWebpackPlugin],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, "./example/src/index.html"),
+            filename: "./index.html"
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.join(__dirname, "./src"), to: path.join(__dirname, "./lib") },
+            ],
+        }),
+    ],
     resolve: {
         extensions: [".js", ".jsx"]
     },

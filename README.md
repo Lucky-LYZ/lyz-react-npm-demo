@@ -4,6 +4,13 @@ Thanks for [crazylxr](https://github.com/crazylxr/react-demo/blob/master/README.
 
 学习探索发布 react 组件到 npm 文章的 demo
 
+# 发布命令
+
+```bash
+npm run pre-publish
+npm publish
+```
+
 # 发布 react 组件到 npm
 
 在整个发布组件的过程我做了如下几件事儿：
