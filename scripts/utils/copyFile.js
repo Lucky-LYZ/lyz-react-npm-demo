@@ -35,15 +35,19 @@ function copy (src, dst) {
                 throw err;
             }
             paths.forEach(function (path) {
+                // console.log({ path });
+                // 不拷贝js文件
+                if (path.includes('.js')) {
+                    return;
+                }
                 var _src = src + '/' + path,
                     _dst = dst + '/' + path,
                     readable, writable;
-
                 stat(_src, function (err, st) {
                     if (err) {
                         throw err;
                     }
-
+                    // console.log({ st });
                     // 判断是否为文件
                     if (st.isFile()) {
                         // 创建读取流
