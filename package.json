@@ -11,10 +11,10 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages -d examples/dist",
+    "deploy": "gh-pages -d example/dist",
     "compile": "npx babel src --out-dir lib",
     "publish-demo": "npm run build && npm run deploy",
-    "pre-publish": "npm run build && npm run compile"
+    "pre-publish": "node scripts/publish.js && npm run compile"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
