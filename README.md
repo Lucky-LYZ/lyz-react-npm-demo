@@ -6,26 +6,26 @@ Thanks for [crazylxr](https://github.com/crazylxr/react-demo/blob/master/README.
 
 # 相关命令
 
-## 发布组件至 npm
+**发布组件至 npm**
 
 ```bash
 npm run pre-publish
 npm publish
 ```
 
-## 本地启动调试组件
+**本地启动调试组件**
 
 ```bash
 npm run start
 ```
 
-## 在 GitHub Pages 上发布一个在线 demo
+**在 GitHub Pages 上发布一个在线 demo**
 
 ```bash
 npm run publish-demo
 ```
 
-# 发布 react 组件到 npm
+# 发布 react 组件到 npm 流程介绍
 
 在整个发布组件的过程我做了如下几件事儿：
 
