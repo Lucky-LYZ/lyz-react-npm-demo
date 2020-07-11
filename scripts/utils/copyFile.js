@@ -12,9 +12,7 @@ function exists (src, dst, callback) {
         // 已存在
         if (exists) {
             callback(src, dst);
-        }
-        // 不存在
-        else {
+        } else { // 不存在的话先创建文件
             fs.mkdir(dst, function () {
                 callback(src, dst);
             });
