@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: path.join(__dirname, "./example/src/app.js"),
+    entry: path.join(__dirname, "./example/src/app.js"), // 本地启动服务，测试组件可用性
     output: {
         path: path.join(__dirname, "example/dist"),
         filename: "bundle.js"
@@ -30,11 +30,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "./example/src/index.html"),
             filename: "./index.html"
-        }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: path.join(__dirname, "./src"), to: path.join(__dirname, "./lib") },
-            ],
         }),
     ],
     resolve: {
